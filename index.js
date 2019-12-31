@@ -13,6 +13,7 @@ app.use(bodyParser.json())
 const options = {
     customCss: ".swagger-ui .topbar { display: none }"
 }
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, options))
 require('./routes/main.routes')(app)
 
