@@ -7,7 +7,7 @@ const categoryCreate = require('../controller/category/createCategory.controller
 //Routes
 /**
  * @swagger
- * /categories:
+ * /category:
  *  get:
  *      tags: 
  *      - "Category"
@@ -31,16 +31,24 @@ router.get('/', async (req, res, next) =>
  *      summary: create category data
  *      description: use to create category data
  *      parameters:
- *      - in: "body"
- *        name: "body"
- *        description: "Create Key Data"
- *        required: true
+ *         - name: body
+ *           in : body
+ *           required: true
+ *           schema:
+ *               $ref: '#/definitions/Category'
  *      responses: 
- *          '201':
+ *          '200':
  *              description: A successfull response
- *          '401':
- *              description: Not authenticated
+ *              schema:
+ *                  properties:
+ *                      id:
+ *                         format: string
+ *                         example: 5e0187545a531c4105fce4c7
+ *                      name:
+ *                         format: string
+ *                         example : Tas
  */
+
 router.post('/', async (req, res, next) =>
     await new categoryCreate().exec(req, res,next))
 
@@ -53,7 +61,7 @@ router.post('/', async (req, res, next) =>
  *     properties:
  *       name:
  *         type: string
- *         example: Air
+ *         example: Tas
  */
 
 module.exports = router
