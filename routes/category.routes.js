@@ -12,8 +12,6 @@ const categoryCreate = require('../controller/category/createCategory.controller
  *      tags: 
  *      - "Category"
  *      summary: get list of categories data
- *      security:
- *      -   bearerAuth: []
  *      description: Use to request all categories data
  *      responses: 
  *          '200':
@@ -31,8 +29,6 @@ router.get('/', async (req, res, next) =>
  *      tags:
  *      - "Category"
  *      summary: create category data
- *      security: 
- *      - bearerAuth: []
  *      description: use to create category data
  *      parameters:
  *      - in: "body"
