@@ -13,6 +13,9 @@ const CustromerSchema = new Schema({
     address: {
         type: String,
         required: true
+    },
+    slug : {
+        type: String
     }
 })
 

@@ -1,28 +1,23 @@
-const Customer = require('../../model/customer.model')
+const Category = require('../../model/category.model')
 const API = require('../../action/index.action')
 const response = require('../../response/index.response')
-const slugify = require('slugify')
 
-class CreateCustomer extends API{
+class CreateCategory extends API{
     constructor() {
-        super(Customer)
+        super(Category)
     }
 
     async exec(req, res, next){
         try{
-            let {name, age, address} = req.body
-            let slug = slugify(name, {
-                remove: null,
-                lower: true,
-            })  
+            let { name } = req.body
             let request_data = {
-                name, age, address, slug
+                name
             }
 
             let data = await this.create(request_data)
 
             return res.send(
-                response.success(null, 'Created customer data', data )
+                response.success(null, 'Created category data', data )
             )
         }catch(err){
             return res.status(400).json({
@@ -33,4 +28,4 @@ class CreateCustomer extends API{
     }
 }
 
-module.exports = CreateCustomer
+module.exports = CreateCategory
